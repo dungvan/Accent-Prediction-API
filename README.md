@@ -15,7 +15,7 @@
         $ git clone https://github.com/dungvan2512/Accent-Prediction-API
       ```
     - Build a *.war file from project to deploy (you can get a pr.war file in this project).
-    - Go to `http://your_server_domain_or_IP:8080/manager/html`, in `WAR file directory tab, tou upload this WAR file and hit the deploy button.
+    - Go to `http://your_server_domain_or_IP:8080/manager/html`, in `WAR file directory` tab, tou upload this WAR file and hit the deploy button.
     - In the final step, you must to copy the `datasets` folder to your server with path is the path show in your server: go to `http://your_server_domain_or_IP:8080/name_war_file` you will see the path.
       
       
