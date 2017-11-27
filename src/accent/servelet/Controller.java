@@ -18,7 +18,7 @@ import net.sf.json.JSONObject;
  */
 @WebServlet("/")
 public class Controller extends HttpServlet {
-	static AccentPredictor ap;
+	static AccentPredictor ap = null;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -34,6 +34,14 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if(ap == null) {
+			try {
+				ap = new AccentPredictor();
+			} catch (Exception e) {
+				response.getWriter().append("server has no dataset in ").append(new File("").getAbsolutePath());
+				return;
+			}
+		}
 		response.getWriter().append(new File("").getAbsolutePath());
 	}
 
@@ -42,9 +50,6 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if (ap.equals(null)) {
-		    ap = new AccentPredictor();
-		}
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF8");
 		response.setContentType("application/json");
