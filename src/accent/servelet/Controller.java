@@ -18,7 +18,7 @@ import net.sf.json.JSONObject;
  */
 @WebServlet("/")
 public class Controller extends HttpServlet {
-	static AccentPredictor ap = new AccentPredictor();
+	static AccentPredictor ap;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -42,6 +42,9 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if (ap.equals(null)) {
+		    ap = new AccentPredictor();
+		}
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF8");
 		response.setContentType("application/json");
